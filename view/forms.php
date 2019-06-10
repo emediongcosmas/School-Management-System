@@ -15,7 +15,7 @@
                         </div>
                         <div class="card-body">
                             <!-- NEW STUDENT FORM -->
-                            <form action="" method="POST">
+                            <form action="../controller/student.controller.php" method="POST">
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="surname">Surname</label>
@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="relationship">Relationship</label>
-                                        <select name="" id="" class="form-control">
+                                        <select name="relationship" id="relationship" class="form-control">
                                             <option value=""></option>
                                             <option value="Father">Father</option>
                                             <option value="Mother">Mother</option>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="card-body">
                             <!-- NEW TEACHER FORM -->
-                            <form action="" method="POST">
+                            <form action="../controller/teacher.controller.php" method="POST">
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="surname">Surname</label>

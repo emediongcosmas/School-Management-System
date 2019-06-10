@@ -24,8 +24,6 @@
                 
                 return $pdo;
                 
-                echo 'Done';
-                
                 } 
             
             catch (PDOException $e) {
