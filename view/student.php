@@ -1,4 +1,10 @@
 <?php 
+
+    include '../model/student.model.php';
+    
+    $student = new Student;
+    $students = $student->DisplayStudents();
+
     $page = "Student";
     include 'sub-views/header.php'; 
 ?>
@@ -57,13 +63,14 @@
                                     </th>
                                     <th>name</th>
                                     <th>email</th>
-                                    <th>description</th>
-                                    <th>date</th>
-                                    <th>status</th>
-                                    <th>price</th>
+                                    <th>gender</th>
+                                    <th>student id</th>
                                     <th></th>
                                 </tr>
                             </thead>
+                            
+                            <?php foreach($students as $student) { ?>
+                            
                             <tbody>
                                 <tr class="tr-shadow">
                                     <td>
@@ -72,36 +79,34 @@
                                             <span class="au-checkmark"></span>
                                         </label>
                                     </td>
-                                    <td>Lori Lynch</td>
+                                    <td><?= $student['surname'].", ".$student['firstname']." ".$student['middlename']; ?></td>
                                     <td>
-                                        <span class="block-email">lori@example.com</span>
+                                        <span class="block-email"><?= $student['email']; ?></span>
                                     </td>
-                                    <td class="desc">Samsung S8 Black</td>
-                                    <td>2018-09-27 02:12</td>
                                     <td>
-                                        <span class="status--process">Processed</span>
+                                        <span class="status--process"><?= $student['gender']; ?></span>
                                     </td>
-                                    <td>$679.00</td>
+                                    <td><?= $student['studentid']; ?></td>
                                     <td>
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                <i class="zmdi zmdi-mail-send"></i>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="sr-only">Toggle Dropdown</span>
                                             </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Separated link</a>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="spacer"></tr>
                                 
                             </tbody>
+                            
+                            <?php } ?>
                         </table>
                     </div>
                     <!-- END DATA TABLE -->

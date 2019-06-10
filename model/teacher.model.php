@@ -173,7 +173,29 @@ class Teacher extends Dbh {
        $insertTeacher->bindParam(':state', $this->state);
        $insertTeacher->execute();
         
-    }    
+    }   
+    
+    public function DisplayTeachers() {
+        
+        
+        try {
+            
+            $fetchTeacher = $this->connect()->prepare("SELECT * FROM teacher");
+            $fetchTeacher->execute();
+            $teachers = $fetchTeacher->fetchAll();
+            
+                return $teachers;
+            
+            }
+            
+        catch (PDOException $e){
+            
+            echo $e->getMessage;
+            
+        }
+        
+        
+    }
     
 }
 

@@ -19,26 +19,26 @@
     // Instantiate the Student class
     $student = new Student;
     
-    // Set the properties from the input
-    $student->setSurname($surname);
-    $student->setFirstname($firstname);
-    $student->setMiddlename($middlename);
-    $student->setDob($dob);
-    $student->setEmail($email);
-    $student->setGender($gender);
-    $student->setStudentid($studentid);
-    $student->setAddress($address);
-    $student->setCity($city);
-    $student->setState($state);
-    $student->setGuardianName($guardian_name);
-    $student->setGuardianNo($guardian_no);
-    $student->setGuardianName($guardian_name);
-    $student->setRelationship($relationship);
+        // Set the properties from the input
+        $student->setSurname($surname);
+        $student->setFirstname($firstname);
+        $student->setMiddlename($middlename);
+        $student->setDob($dob);
+        $student->setEmail($email);
+        $student->setGender($gender);
+        $student->setStudentid($studentid);
+        $student->setAddress($address);
+        $student->setCity($city);
+        $student->setState($state);
+        $student->setGuardianName($guardian_name);
+        $student->setGuardianNo($guardian_no);
+        $student->setGuardianName($guardian_name);
+        $student->setRelationship($relationship);
     
-    // Add new student to the database
-    $student->newStudent();
-    
-    header('Location: ../view/student.php');
-    
+        // Add new student to the database
+        $student->newStudent();
+        
+        header('Location: ../view/student.php');
+        
     
 ?>

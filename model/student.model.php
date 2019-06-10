@@ -250,6 +250,29 @@ class Student extends Dbh {
         
     }    
     
+    public function DisplayStudents() {
+        
+        
+        try {
+            
+            $fetchStudent = $this->connect()->prepare("SELECT * FROM student");
+            $fetchStudent->execute();
+            $students = $fetchStudent->fetchAll();
+            
+                return $students;
+            
+            }
+            
+        catch (PDOException $e){
+            
+            echo $e->getMessage;
+            
+        }
+        
+        
+    }
+    
+    
 }
 
 ?>
