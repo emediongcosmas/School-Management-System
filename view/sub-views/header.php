@@ -39,8 +39,8 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="../assets/images/icon/logo.png" alt="CoolAdmin" />
+                        <a href="#">
+                            <h3>Admin Panel </h3>
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">

@@ -5,11 +5,7 @@
     $teacher = new Teacher;
     $teachers = $teacher->DisplayTeachers();
     
-    
-    //     echo $teacher['surname'];
-    // }
-
-// Set page variable
+    // Set page variable
     $page = "Teacher";
     include 'sub-views/header.php'; 
 
@@ -95,15 +91,13 @@
                                     <td><?= $teacher['phone']; ?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Separated link</a>
+                                                <a class="dropdown-item" href="#">Edit</a>
+                                                <a class="dropdown-item" href="#">View Profile</a>
+                                                <a class="dropdown-item" href="#">Assign Class</a>
                                             </div>
                                         </div>
                                     </td>

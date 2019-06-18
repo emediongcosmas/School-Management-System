@@ -12,12 +12,13 @@
                     <h3 class="title-5 m-b-35">Grade</h3>
                     
                     <!-- GRADE FORM -->
-                    <form action="" method="POST">
+                    <form action="../controller/grade.controller.php" method="POST">
                         
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="">Name:</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" onkeyup="showSuggestion(this.value)">
+                                <p><span id="output" style="font-weight:bold"></span></p>
                             </div>
                         </div>
                         
@@ -78,9 +79,15 @@
                                     <td scope="row"><input type="number" name="exam2" class="form-control"></td>
                                     <td scope="row"><input type="number" name="total" class="form-control"></td>
                                 </tr>
+                                
                             </tbody>
+                           
                         </table>
+                        <br>
                         
+                            <div class="form-group text-right">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
                     </form>
                     <!-- END OF GRADE FORM -->
                     

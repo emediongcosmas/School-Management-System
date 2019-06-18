@@ -5,6 +5,7 @@
     $student = new Student;
     $students = $student->DisplayStudents();
 
+    // Set page variable
     $page = "Student";
     include 'sub-views/header.php'; 
 ?>
@@ -40,7 +41,7 @@
                         </div>
                         <div class="table-data__tool-right">
                             <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                <i class="zmdi zmdi-plus"></i>add item</button>
+                                <i class="zmdi zmdi-plus"></i>add student</button>
                             <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                 <select class="js-select2" name="type">
                                     <option selected="selected">Export</option>
@@ -89,24 +90,22 @@
                                     <td><?= $student['studentid']; ?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Separated link</a>
+                                                <a class="dropdown-item" href="#">Edit</a>
+                                                <a class="dropdown-item" href="#">View Profile</a>
+                                                <a class="dropdown-item" href="#">Add Grade</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="spacer"></tr>
-                                
                             </tbody>
                             
                             <?php } ?>
+                            
                         </table>
                     </div>
                     <!-- END DATA TABLE -->
