@@ -15,10 +15,11 @@
                     <form action="../controller/grade.controller.php" method="POST">
                         
                         <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-12 form-search">
                                 <label for="">Name:</label>
-                                <input type="text" class="form-control" id="name" name="name" onkeyup="showSuggestion(this.value)">
-                                <p><span id="output" style="font-weight:bold"></span></p>
+                                <input type="text" class="form-control" id="nameSearch" name="name" onkeyup="showSuggestion(this.value)">
+                                <small id="nameHelp" class="form-text text-muted">Please enter surname</small>
+                                <div id="suggestion-box"></div>
                             </div>
                         </div>
                         
@@ -70,7 +71,7 @@
                                     <td scope="row"><input type="number" name="exam2" class="form-control"></td>
                                     <td scope="row"><input type="number" name="total" class="form-control"></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td scope="row">2.</td>
                                     <td scope="row">English Language</td>
                                     <td scope="row"><input type="number" name="ca1" class="form-control"></td>
@@ -78,7 +79,7 @@
                                     <td scope="row"><input type="number" name="ca2" class="form-control"></td>
                                     <td scope="row"><input type="number" name="exam2" class="form-control"></td>
                                     <td scope="row"><input type="number" name="total" class="form-control"></td>
-                                </tr>
+                                </tr> -->
                                 
                             </tbody>
                            

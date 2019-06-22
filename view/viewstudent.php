@@ -1,24 +1,23 @@
-<?php
+<?php 
 
-    include '../model/teacher.model.php';
+    include '../model/student.model.php';
     
-    $teacher = new Teacher;
-    $teachers = $teacher->DisplayTeachers();
-    
+    $student = new Student;
+    $students = $student->DisplayStudents();
+
     // Set page variable
-    $page = "Teacher";
+    $page = "Student";
     include 'sub-views/header.php'; 
-
 ?>
 
 <!-- MAIN CONTENT-->
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-           <div class="row">
+            <div class="row">
                 <div class="col-md-12">
-                    <!-- TEACHER TABLE -->
-                    <h3 class="title-5 m-b-35">Teacher</h3>
+                    <!-- DATA TABLE -->
+                    <h3 class="title-5 m-b-35">Student</h3>
                     <div class="table-data__tool">
                         <div class="table-data__tool-left">
                             <div class="rs-select2--light rs-select2--md">
@@ -41,8 +40,8 @@
                                 <i class="zmdi zmdi-filter-list"></i>filters</button>
                         </div>
                         <div class="table-data__tool-right">
-                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                <i class="zmdi zmdi-plus"></i>add item</button>
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href='addstudent.php'">
+                                <i class="zmdi zmdi-plus"></i>add student</button>
                             <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                 <select class="js-select2" name="type">
                                     <option selected="selected">Export</option>
@@ -66,12 +65,12 @@
                                     <th>name</th>
                                     <th>email</th>
                                     <th>gender</th>
-                                    <th>phone</th>
+                                    <th>student id</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             
-                            <?php foreach($teachers as $teacher) { ?>
+                            <?php foreach($students as $student) { ?>
                             
                             <tbody>
                                 <tr class="tr-shadow">
@@ -81,39 +80,56 @@
                                             <span class="au-checkmark"></span>
                                         </label>
                                     </td>
-                                    <td><?= $teacher['surname'].", ".$teacher['firstname']." ".$teacher['middlename']; ?></td>
+                                    <td><?= $student['surname'].", ".$student['firstname']." ".$student['middlename']; ?></td>
                                     <td>
-                                        <span class="block-email"><?= $teacher['email']; ?></span>
+                                        <span class="block-email"><?= $student['email']; ?></span>
                                     </td>
                                     <td>
-                                        <span class="status--process"><?= $teacher['gender']; ?></span>
+                                        <span class="status--process"><?= $student['gender']; ?></span>
                                     </td>
-                                    <td><?= $teacher['phone']; ?></td>
+                                    <td><?= $student['studentid']; ?></td>
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">View Profile</a>
-                                                <a class="dropdown-item" href="#">Assign Class</a>
+                                                <form action="" method="post">
+                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                    <button type="submit" class="dropdown-item">Edit</button>
+                                                </form>
+                                                <form action="" method="post">
+                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                    <button type="submit" class="dropdown-item">View Profile</button>
+                                                </form>
+                                                <form action="grade.php" method="POST">
+                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                    <button type="submit" class="dropdown-item">Add Grade</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="spacer"></tr>
-                                
                             </tbody>
                             
                             <?php } ?>
+                            
                         </table>
                     </div>
-                    <!-- END TEACHER TABLE -->
+                    <!-- END DATA TABLE -->
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-  
-<?php include 'sub-views/footer.php'; ?>    
+
+
+<?php include 'sub-views/footer.php'; ?>

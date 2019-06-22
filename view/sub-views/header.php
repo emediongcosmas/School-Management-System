@@ -57,21 +57,45 @@
                             <a href="home.php">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-                        <li class=<?php if($page == "Student"){echo "active";};?>>
-                            <a href="student.php">
-                                <i class="fas fa-chart-bar"></i>Student</a>
+                        <li class=<?php if($page == "Student"){echo "active has-sub";};?>>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-graduation-cap"></i>Student</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="addstudent.php">Add Student</a>
+                                </li>
+                                <li>
+                                    <a href="viewstudent.php">View Student</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class=<?php if($page == "Teacher"){echo "active";};?>>
-                            <a href="teacher.php">
-                                <i class="fas fa-table"></i>Teacher</a>
+                        <li class=<?php if($page == "Teacher"){echo "active has-sub";};?>>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user"></i>Teacher</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="addteacher.php">Add Teacher</a>
+                                </li>
+                                <li>
+                                    <a href="viewteacher.php">View Teacher</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class=<?php if($page == "Subject"){echo "active has-sub";};?>>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-clipboard"></i>Subject</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="addsubject.php">Add Subject</a>
+                                </li>
+                                <li>
+                                    <a href="viewsubject.php">View Subject</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class=<?php if($page == "Grade"){echo "active";};?>>
                             <a href="grade.php">
-                                <i class="fas fa-calendar-alt"></i>Grade</a>
-                        </li>
-                        <li class=<?php if($page == "Forms"){echo "active";};?>>
-                            <a href="forms.php">
-                                <i class="far fa-check-square"></i>Forms</a>
+                                <i class="fas fa-chart-bar"></i>Grade</a>
                         </li>
                     </ul>
                 </div>
@@ -93,21 +117,45 @@
                             <a href="home.php">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-                        <li class=<?php if($page == "Student"){echo "active";};?>>
-                            <a href="student.php">
-                                <i class="fas fa-chart-bar"></i>Student</a>
+                        <li class=<?php if($page == "Student"){echo "active has-sub";};?>>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-graduation-cap"></i>Student</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="addstudent.php">Add Student</a>
+                                </li>
+                                <li>
+                                    <a href="viewstudent.php">View Student</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class=<?php if($page == "Teacher"){echo "active";};?>>
-                            <a href="teacher.php">
-                                <i class="fas fa-table"></i>Teacher</a>
+                        <li class=<?php if($page == "Teacher"){echo "active has-sub";};?>>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user"></i>Teacher</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="addteacher.php">Add Teacher</a>
+                                </li>
+                                <li>
+                                    <a href="viewteacher.php">View Teacher</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class=<?php if($page == "Subject"){echo "active has-sub";};?>>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-clipboard"></i>Subject</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="addsubject.php">Add Subject</a>
+                                </li>
+                                <li>
+                                    <a href="viewsubject.php">View Subject</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class=<?php if($page == "Grade"){echo "active";};?>>
                             <a href="grade.php">
-                                <i class="fas fa-calendar-alt"></i>Grade</a>
-                        </li>
-                        <li class=<?php if($page == "Forms"){echo "active";};?>>
-                            <a href="forms.php">
-                                <i class="far fa-check-square"></i>Forms</a>
+                                <i class="fas fa-chart-bar"></i>Grade</a>
                         </li>
                     </ul>
                 </nav>
