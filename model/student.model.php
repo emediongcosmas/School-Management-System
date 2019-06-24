@@ -272,24 +272,28 @@ class Student extends Dbh {
         
     }
     
-    public function fetchStudents($surname) {
+    public function FetchStudent($id) {
         
-        try {
+        if(isset($_POST['id']) && !empty($_POST['id'])){
             
-            $fetchStudent = $this->connect()->prepare("SELECT * FROM student WHERE surname = :surname");
-            $fetchStudent->bindParam(':surname', $surname);
-            $fetchStudent->execute();
-            $students = $fetchStudent->fetchAll();
+            try {
+
+                    $fetchStudent = $this->connect()->prepare("SELECT surname, firstname, middlename FROM student WHERE id = :id");
+                    $fetchStudent->bindParam(':id', $id);
+                    $fetchStudent->execute();
+                    $student = $fetchStudent->fetchAll();
+                    
+                        return $student;
+                    
+                } 
             
-                return $students;
-            
-            } 
-        
-        catch (PDOException $e) {
-                
-                echo $e->getMessage;
-                
-            }
+            catch (PDOException $e) {
+                    
+                    echo $e->getMessage;
+                    
+                }
+    
+        }
         
     }
     

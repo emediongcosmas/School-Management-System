@@ -1,16 +1,12 @@
 <?php 
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    include '../model/student.model.php';
         
-        if(!empty($_POST['id'])) {
-              
-            $id = $_POST['id'];
-            
-        }
-    
-    }
-
-
+        $id = $_POST['id'];
+        
+        $student = new Student;
+        $student = $student->FetchStudent($id);
 
     $page = "Grade";
     include 'sub-views/header.php'; 
@@ -27,14 +23,16 @@
                     <!-- GRADE FORM -->
                     <form action="../controller/grade.controller.php" method="POST">
                         
+                        <?php foreach($student as $student){ ?>
                         <div class="form-row">
                             <div class="form-group col-md-12 form-search">
                                 <label for="">Name:</label>
-                                <input type="text" class="form-control" id="nameSearch" name="name" value="<?= $id; ?>">
+                                <input type="text" class="form-control" id="nameSearch" name="name" value="<?= $student['surname'].', '.$student['firstname'].' '.$student['middlename']; ?>">
                                 <small id="nameHelp" class="form-text text-muted">Please enter surname</small>
                                 <div id="suggestion-box"></div>
                             </div>
                         </div>
+                        <?php } ?>
                         
                         <div class="form-row">
                             <div class="form-group col-md-6">
