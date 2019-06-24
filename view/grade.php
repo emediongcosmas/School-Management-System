@@ -1,4 +1,17 @@
 <?php 
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        
+        if(!empty($_POST['id'])) {
+              
+            $id = $_POST['id'];
+            
+        }
+    
+    }
+
+
+
     $page = "Grade";
     include 'sub-views/header.php'; 
 ?>
@@ -17,7 +30,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12 form-search">
                                 <label for="">Name:</label>
-                                <input type="text" class="form-control" id="nameSearch" name="name" onkeyup="showSuggestion(this.value)">
+                                <input type="text" class="form-control" id="nameSearch" name="name" value="<?= $id; ?>">
                                 <small id="nameHelp" class="form-text text-muted">Please enter surname</small>
                                 <div id="suggestion-box"></div>
                             </div>
@@ -71,24 +84,16 @@
                                     <td scope="row"><input type="number" name="exam2" class="form-control"></td>
                                     <td scope="row"><input type="number" name="total" class="form-control"></td>
                                 </tr>
-                                <!-- <tr>
-                                    <td scope="row">2.</td>
-                                    <td scope="row">English Language</td>
-                                    <td scope="row"><input type="number" name="ca1" class="form-control"></td>
-                                    <td scope="row"><input type="number" name="exam1" class="form-control"></td>
-                                    <td scope="row"><input type="number" name="ca2" class="form-control"></td>
-                                    <td scope="row"><input type="number" name="exam2" class="form-control"></td>
-                                    <td scope="row"><input type="number" name="total" class="form-control"></td>
-                                </tr> -->
                                 
                             </tbody>
                            
                         </table>
                         <br>
                         
-                            <div class="form-group text-right">
-                                <button class="btn btn-primary">Submit</button>
-                            </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button class="btn btn-danger" onclick="window.location.href='viewstudent.php'">Cancel</button>
+                        </div>
                     </form>
                     <!-- END OF GRADE FORM -->
                     

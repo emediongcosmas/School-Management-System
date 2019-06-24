@@ -37,20 +37,20 @@
                                 </select>
                                 <div class="dropDownSelect2"></div>
                             </div>
-                            <button class="au-btn-filter">
-                                <i class="zmdi zmdi-filter-list"></i>filters</button>
-                        </div>
-                        <div class="table-data__tool-right">
-                            <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href='addteacher.php'">
-                                <i class="zmdi zmdi-plus"></i>add teacher</button>
-                            <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+     <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                 <select class="js-select2" name="type">
                                     <option selected="selected">Export</option>
                                     <option value="">Option 1</option>
                                     <option value="">Option 2</option>
                                 </select>
                                 <div class="dropDownSelect2"></div>
-                            </div>
+                            </div>                       <button class="au-btn-filter">
+                                <i class="zmdi zmdi-filter-list"></i>filters</button>
+                        </div>
+                        <div class="table-data__tool-right">
+                            <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href='addteacher.php'">
+                                <i class="zmdi zmdi-plus"></i>add teacher</button>
+                            
                         </div>
                     </div>
                     <div class="table-responsive table-responsive-data2">

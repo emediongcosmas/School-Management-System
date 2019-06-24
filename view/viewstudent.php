@@ -95,15 +95,15 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <form action="" method="post">
-                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                    <input type="hidden" name="id" value="<?= $student['id']; ?>"> 
                                                     <button type="submit" class="dropdown-item">Edit</button>
                                                 </form>
                                                 <form action="" method="post">
-                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                    <input type="hidden" name="id" value="<?= $student['id']; ?>"> 
                                                     <button type="submit" class="dropdown-item">View Profile</button>
                                                 </form>
                                                 <form action="grade.php" method="POST">
-                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                    <input type="hidden" name="id" value="<?= $student['id']; ?>"> 
                                                     <button type="submit" class="dropdown-item">Add Grade</button>
                                                 </form>
                                             </div>
