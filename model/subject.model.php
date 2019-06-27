@@ -60,7 +60,6 @@
             
             $insertStudent = $this->connect()->prepare("INSERT INTO subject (subject, jss, sss) VALUES ( :subject, :jss, :sss)");
         
-        
             $insertStudent->bindParam(':subject', $this->subject);
             $insertStudent->bindParam(':jss', $this->jss);
             $insertStudent->bindParam(':sss', $this->sss);

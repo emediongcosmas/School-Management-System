@@ -11,4 +11,3 @@ include '../model/subject.model.php';
     $newSubject->InsertSubject();
     
     
-    //  echo $newSubject->jss;
