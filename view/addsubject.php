@@ -15,7 +15,7 @@
                         </div>
                         <div class="card-body">
                             <!-- NEW TEACHER FORM -->
-                            <form action="../controller/teacher.controller.php" method="POST">
+                            <form action="../controller/subject.controller.php" method="POST">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="subject">Subject:</label>

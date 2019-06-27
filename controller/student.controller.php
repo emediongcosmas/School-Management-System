@@ -36,7 +36,7 @@
         $student->setRelationship($relationship);
     
         // Add new student to the database
-        $student->newStudent();
+        $student->InsertStudent();
         
         header('Location: ../view/student.php');
         

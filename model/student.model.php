@@ -228,7 +228,7 @@
             
         }
         
-        public function newStudent() {
+        public function InsertStudent() {
             
         $insertStudent = $this->connect()->prepare("INSERT INTO student (surname, firstname, middlename, dob, email, gender, studentid, address, city, state, guardian_name, guardian_no, relationship) VALUES ( :surname, :firstname, :middlename, :dob, :email, :gender, :studentid, :address, :city, :state, :guardian_name, :guardian_no, :relationship )");
         

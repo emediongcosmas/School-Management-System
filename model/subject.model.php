@@ -8,32 +8,67 @@
         private $jss;
         private $sss;
         
-        public function __construct(
-            string $subject, 
-            int $jss, 
-            int $sss
-        ){
-            $this->subject = $subject;
-            $this->css = $jss;
-            $this->jss = $sss;
-        }
-        
         public function GetSubject() {
             
-            return $this->subject;
+            if(isset($_POST['subject']) && !empty($_POST['subject'])) {
+                
+                $this->subject = htmlentities($_POST['subject']);
+                
+                return $this->subject;
+                
+            }
             
         }
         
         public function GetJss() {
             
-            return $this->jss;
+            if(isset($_POST['jss']) && !empty($_POST['jss'])){
+                
+                $this->jss = $_POST['jss'];
+                
+                return $this->jss;
+                
+            } else {
+                
+                $this->jss = 0;
+                
+                return $this->jss;
+                
+            }
             
         }
         
         public function GetSss() {
             
-            return $this->css;
+            if(isset($_POST['sss']) && !empty($_POST['sss'])) {
+                
+                $this->sss = $_POST['sss'];
+                
+                return $this->sss;
+                
+            } else {
+                
+                $this->sss = 0;
+                
+                return $this->sss;
+                
+            }
             
         }
         
+        public function InsertSubject() {
+            
+            $insertStudent = $this->connect()->prepare("INSERT INTO subject (subject, jss, sss) VALUES ( :subject, :jss, :sss)");
+        
+        
+            $insertStudent->bindParam(':subject', $this->subject);
+            $insertStudent->bindParam(':jss', $this->jss);
+            $insertStudent->bindParam(':sss', $this->sss);
+            $insertStudent->execute();
+            
+        }   
+        
     }
+    
+    
+    
