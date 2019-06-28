@@ -58,14 +58,56 @@
         
         public function InsertSubject() {
             
-            $insertStudent = $this->connect()->prepare("INSERT INTO subject (subject, jss, sss) VALUES ( :subject, :jss, :sss)");
+            try {
+                
+                $insertSubject = $this->connect()->prepare("INSERT INTO subject (subject, jss, sss) VALUES ( :subject, :jss, :sss)");
         
-            $insertStudent->bindParam(':subject', $this->subject);
-            $insertStudent->bindParam(':jss', $this->jss);
-            $insertStudent->bindParam(':sss', $this->sss);
-            $insertStudent->execute();
+                $insertSubject->bindParam(':subject', $this->subject);
+                $insertSubject->bindParam(':jss', $this->jss);
+                $insertSubject->bindParam(':sss', $this->sss);
+                $insertSubject->execute();
+                
+                } 
+                
+            catch (PDOException $e){
+                
+                echo $e->getMessage;
+                
+            }
             
-        }   
+        }
+        
+        public function EditSubject() {
+            
+            
+            
+        }
+        
+        public function DeleteSubject() {
+            
+            
+            
+        }
+        
+        public function ViewSubject() {
+            
+            try {
+                
+                $viewSubject = $this->connect()->prepare("SELECT * FROM subject ORDER BY subject ASC");
+                $viewSubject->execute();
+                $subjects = $viewSubject->fetchAll();
+                
+                    return $subjects;
+                
+                }
+                
+            catch (PDOException $e){
+                
+                echo $e->getMessage;
+                
+            }
+            
+        }
         
     }
     

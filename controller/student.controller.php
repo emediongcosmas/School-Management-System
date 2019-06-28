@@ -38,7 +38,7 @@
         // Add new student to the database
         $student->InsertStudent();
         
-        header('Location: ../view/student.php');
+        header('Location: ../view/viewstudent.php');
         
     
 ?>

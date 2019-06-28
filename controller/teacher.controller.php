@@ -29,6 +29,6 @@
     // Add new teacher to the database
     $teacher->newTeacher();
     
-    header('Location: ../view/teacher.php');
+    header('Location: ../view/viewteacher.php');
     
 ?>

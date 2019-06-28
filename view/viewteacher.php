@@ -29,23 +29,18 @@
                                 </select>
                                 <div class="dropDownSelect2"></div>
                             </div>
-                            <div class="rs-select2--light rs-select2--sm">
+                            <!-- <div class="rs-select2--light rs-select2--sm">
                                 <select class="js-select2" name="time">
                                     <option selected="selected">Today</option>
                                     <option value="">3 Days</option>
                                     <option value="">1 Week</option>
                                 </select>
                                 <div class="dropDownSelect2"></div>
-                            </div>
-     <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                <select class="js-select2" name="type">
-                                    <option selected="selected">Export</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
-                            </div>                       <button class="au-btn-filter">
-                                <i class="zmdi zmdi-filter-list"></i>filters</button>
+                            </div> -->
+                            <button class="au-btn-filter">
+                                <i class="zmdi zmdi-filter-list"></i>
+                                    filters
+                            </button>
                         </div>
                         <div class="table-data__tool-right">
                             <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="window.location.href='addteacher.php'">
@@ -95,16 +90,17 @@
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <form action="" method="post">
-                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                <form action="../controller/teacher.controller.php" method="post">
+                                                    <input type="hidden" value="<?= $teacher['id']; ?>"> 
+                                                    <input type="hidden" name="action" value="editteacher">
                                                     <button type="submit" class="dropdown-item">Edit</button>
                                                 </form>
                                                 <form action="" method="post">
-                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                    <input type="hidden" value="<?= $teacher['id']; ?>"> 
                                                     <button type="submit" class="dropdown-item">View Profile</button>
                                                 </form>
                                                 <form action="" method="POST">
-                                                    <input type="hidden" value="<?= $student['id']; ?>"> 
+                                                    <input type="hidden" value="<?= $teacher['id']; ?>"> 
                                                     <button type="submit" class="dropdown-item">Assign Class</button>
                                                 </form>
                                             </div>

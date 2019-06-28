@@ -29,6 +29,7 @@
 
     <!-- Main CSS-->
     <link href="../assets/css/theme.css" rel="stylesheet" media="all">
+    <link href="../assets/css/custom.css" rel="stylesheet" media="all">
 
 </head>
 

@@ -37,6 +37,7 @@
                                 <br>
                                 
                                 <div class="form-group col-md-12 text-center">
+                                    <input type="hidden" name="action" id="action" value="addsubject">
                                     <button type="submit" class="btn btn-primary text-right">Submit</button>
                                 </div>
                             </form>
