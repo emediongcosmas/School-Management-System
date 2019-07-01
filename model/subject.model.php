@@ -77,9 +77,24 @@
             
         }
         
-        public function EditSubject() {
+        public function FetchSubject($id) {
             
-            
+           try {
+                
+                $fetchSubject = $this->connect()->prepare("SELECT * FROM subject WHERE id=:id");
+                $fetchSubject->bindParam(':id', $id);
+                $fetchSubject->execute();
+                $subject = $fetchSubject->fetchAll();
+                
+                    return $subject;
+                
+                }
+                
+            catch (PDOException $e){
+                
+                echo $e->getMessage;
+                
+            }
             
         }
         

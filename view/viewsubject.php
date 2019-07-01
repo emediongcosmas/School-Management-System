@@ -41,7 +41,7 @@
                                 <tr>
                                     <th>Subject</th>
                                     <th>jss</th>
-                                    <th>css</th>
+                                    <th>sss</th>
                                 </tr>
                             </thead>
                             
@@ -60,7 +60,7 @@
                                                 
                                             <i class="fas fa-times-circle red"></i> 
                                                 
-                                        <?php }?>
+                                        <?php } ?>
                                     </td>
                                     <td width="20%">
                                         <?php if($subject['sss'] == 1) { ?>
@@ -74,8 +74,9 @@
                                         <?php }?>
                                     </td>
                                     <td width="5%">
-                                        <form action="../controller/subject.controller.php" method="POST">
+                                        <form action="editsubject.php" method="POST">
                                             <input type="hidden" name="id" value="<?= $subject['id']; ?>"> 
+                                            <input type="hidden" name="action" value="editsubject">
                                             <button type="submit" class="btn btn-link">Edit</button>
                                         </form>
                                     </td>

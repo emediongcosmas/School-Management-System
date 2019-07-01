@@ -14,11 +14,17 @@ include '../model/subject.model.php';
                 
                     header('Location: ../view/viewsubject.php');
         
-    // } elseif ($_POST['action'] == 'editsubject') {
+    } elseif ($_POST['action'] == 'editsubject') {
+       
+        $id = $_POST['id'];
         
+            $editSubject = new Subject;
+
+                $editSubject->FetchSubject($id);
+            
+            
         
-        
-    // } elseif ($_POST['action'] == 'deletesubject') {
+    } elseif ($_POST['action'] == 'deletesubject') {
         
         
         

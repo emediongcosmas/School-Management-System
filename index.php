@@ -43,7 +43,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <h2>Admin Panel</h2>
+                                <h2>Student Portal</h2>
                             </a>
                         </div>
                         <div class="login-form">
