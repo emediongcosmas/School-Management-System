@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+if(isset($_SESSION['email'])) {
+
     include '../model/teacher.model.php';
     
     $teacher = new Teacher;
@@ -121,4 +125,4 @@
     </div>
 </div>
   
-<?php include 'sub-views/footer.php'; ?>    
+<?php include 'sub-views/footer.php'; } ?>    

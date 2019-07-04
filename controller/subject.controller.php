@@ -13,20 +13,15 @@ include '../model/subject.model.php';
                 $newSubject->InsertSubject();
                 
                     header('Location: ../view/viewsubject.php');
-        
-    } elseif ($_POST['action'] == 'editsubject') {
        
-        $id = $_POST['id'];
-        
-            $editSubject = new Subject;
-
-                $editSubject->FetchSubject($id);
-            
-            
-        
     } elseif ($_POST['action'] == 'deletesubject') {
         
+        $id = $_POST['id'];
         
+            $deleteSubject = new Subject;
+            $deleteSubject->DeleteSubject($id);
+        
+                header('Location: ../view/viewsubject.php');
         
     } 
     

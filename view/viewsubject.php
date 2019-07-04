@@ -1,10 +1,17 @@
 <?php 
+    
+// This will begin the session on this page
+session_start();
 
+if(isset($_SESSION['email'])) {
+
+    // This is the instantiation of the subject class to display subjects    
     include '../model/subject.model.php';
     
-    $subjects = new Subject;
-    $subjects = $subjects->ViewSubject();
+        $subjects = new Subject;
+        $subjects = $subjects->ViewSubject();
     
+    // This sets the variable for the view
     $page = "Subject";
     include 'sub-views/header.php'; 
 ?>
@@ -82,7 +89,8 @@
                                     </td>
                                     <td width="5%">
                                         <form action="../controller/subject.controller.php" method="POST">
-                                            <input type="hidden" name="id" value="<?= $subject['id']; ?>"> 
+                                            <input type="hidden" name="id" value="<?= $subject['id']; ?>">
+                                            <input type="hidden" name="action" value="deletesubject">
                                             <button type="submit" class="btn btn-link">Delete</button>
                                         </form>
                                     </td>
@@ -103,4 +111,4 @@
     </div>
 </div>
 
-<?php include 'sub-views/footer.php'; ?>
+<?php include 'sub-views/footer.php'; } ?>

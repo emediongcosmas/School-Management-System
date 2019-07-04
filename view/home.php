@@ -1,6 +1,14 @@
 <?php 
+
+session_start();
+
+if(isset($_SESSION['email'])) {
+    
+    $email = $_SESSION['email'];
+        
     $page = "Dashboard";
     include 'sub-views/header.php'; 
+    
 ?>
 
             <!-- MAIN CONTENT-->
@@ -542,5 +550,8 @@
                 </div>
             </div>
             <!-- END MAIN CONTENT-->
+            
+<?php include 'sub-views/footer.php'; 
 
-<?php include 'sub-views/footer.php'; ?>
+}
+?>

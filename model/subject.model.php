@@ -98,9 +98,22 @@
             
         }
         
-        public function DeleteSubject() {
+        public function DeleteSubject($id) {
             
             
+            try {
+                
+                $deleteSubject = $this->connect()->prepare("DELETE FROM subject WHERE id=:id");
+                $deleteSubject->bindParam(':id', $id);
+                $deleteSubject->execute();
+                
+                }
+                
+            catch (PDOException $e){
+                
+                echo $e->getMessage;
+                
+            }
             
         }
         

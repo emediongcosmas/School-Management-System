@@ -25,15 +25,17 @@ class User extends Dbh {
         
     }
     
-    public function UserValidate() {
+    public function UserValidation() {
         
         if( $this->email === 'admin@admin.com' && 
             $this->password === 'admin001') 
         {
             
+            $_SESSION['email'] = $this->email;
+            
             header('Location: ../view/home.php');
             
-        }
+        }   
         
     }
     

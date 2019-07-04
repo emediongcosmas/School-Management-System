@@ -1,5 +1,9 @@
 <?php 
 
+session_start();
+
+if(isset($_SESSION['email'])) {
+
     include '../model/subject.model.php';
     
     $id = $_POST['id']; 
@@ -60,4 +64,4 @@
     </div>
 </div>
 
-<?php include 'sub-views/footer.php'; ?>
+<?php include 'sub-views/footer.php'; } ?>

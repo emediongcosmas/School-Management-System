@@ -1,4 +1,9 @@
 <?php 
+
+session_start();
+
+if(isset($_SESSION['email'])) {
+
     $page = "Teacher";
     include 'sub-views/header.php'; 
 ?>
@@ -77,4 +82,4 @@
     </div>
 </div>
 
-<?php include 'sub-views/footer.php'; ?>
+<?php include 'sub-views/footer.php'; } ?>
