@@ -1,13 +1,15 @@
 <?php 
 
+// This will begin the session
 session_start();
 
 if(isset($_SESSION['email'])) {
 
+    // Instantiation of the student class to display students
     include '../model/student.model.php';
     
-    $student = new Student;
-    $students = $student->DisplayStudents();
+        $student = new Student;
+        $students = $student->DisplayStudents();
 
     // Set page variable
     $page = "Student";

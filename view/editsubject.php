@@ -50,8 +50,9 @@ if(isset($_SESSION['email'])) {
                                 <?php } ?>
                                 
                                 <div class="form-group col-md-12 text-center">
-                                    <input type="hidden" name="action" id="action" value="addsubject">
-                                    <button type="submit" class="btn btn-primary text-right">Submit</button>
+                                    <input type="hidden" name="action" id="action" value="updatesubject">
+                                    <input type="hidden" name="id" id="id" value="<?php echo $subject['id'] ?>">
+                                    <button type="submit" class="btn btn-primary text-right">Update</button>
                                 </div>
                             </form>
                             <!-- END OF NEW TEACHER FORM -->

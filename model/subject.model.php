@@ -117,7 +117,7 @@
             
         }
         
-        public function ViewSubject() {
+        public function FetchAllSubjects() {
             
             try {
                 
@@ -126,6 +126,28 @@
                 $subjects = $viewSubject->fetchAll();
                 
                     return $subjects;
+                
+                }
+                
+            catch (PDOException $e){
+                
+                echo $e->getMessage;
+                
+            }
+            
+        }
+        
+        public function UpdateSubject($id) {
+            
+            
+            try {
+                
+                $updateSubject = $this->connect()->prepare("UPDATE subject SET subject=:subject, jss=:jss, sss=:sss WHERE id=:id");
+                $updateSubject->bindParam(':subject', $this->subject);
+                $updateSubject->bindParam(':jss', $this->jss);
+                $updateSubject->bindParam(':sss', $this->sss);
+                $updateSubject->bindParam(':id', $id);
+                $updateSubject->execute();
                 
                 }
                 

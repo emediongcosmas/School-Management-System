@@ -13,3 +13,20 @@
     font-size: 40px;
     
 }
+
+body {
+    counter-reset: Serial;
+}
+
+table {
+    
+    border-collapse: separate;
+    
+}
+
+.auto-index td:first-child:before{
+    
+    counter-increment: Serial;
+    content: counter(Serial);
+
+}

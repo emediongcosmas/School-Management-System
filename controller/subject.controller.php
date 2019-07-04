@@ -23,6 +23,18 @@ include '../model/subject.model.php';
         
                 header('Location: ../view/viewsubject.php');
         
+    } elseif ($_POST['action'] == 'updatesubject') {
+        
+        $id = $_POST['id'];
+        
+            $updateSubject = new Subject;
+            $updateSubject->GetSubject();
+            $updateSubject->GetJss();
+            $updateSubject->GetSss();
+            $updateSubject->UpdateSubject($id);
+        
+                header('Location: ../view/viewsubject.php');
+        
     } 
     
     

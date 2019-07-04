@@ -9,7 +9,7 @@ if(isset($_SESSION['email'])) {
     include '../model/subject.model.php';
     
         $subjects = new Subject;
-        $subjects = $subjects->ViewSubject();
+        $subjects = $subjects->FetchAllSubjects();
     
     // This sets the variable for the view
     $page = "Subject";
@@ -43,9 +43,10 @@ if(isset($_SESSION['email'])) {
                         </div>
                     </div>
                     <div class="table-responsive table-responsive-data2 col-md-12">
-                        <table class="table table-data2">
+                        <table class="table table-data2 auto-index">
                             <thead>
                                 <tr>
+                                    <!-- <th>id</th> -->
                                     <th>Subject</th>
                                     <th>jss</th>
                                     <th>sss</th>
@@ -56,6 +57,7 @@ if(isset($_SESSION['email'])) {
                             
                             <tbody>
                                 <tr class="tr-shadow">
+                                    <!-- <td></td> -->
                                     <td width="50%"><?= $subject['subject']; ?></td>
                                     <td width="20%">
                                         
