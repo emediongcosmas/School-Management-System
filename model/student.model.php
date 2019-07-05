@@ -18,17 +18,15 @@
         private $guardian_no;
         private $relationship;
         
-        // Please remember to validate these tomorrow 
-        
         public function setSurname($surname) {
             
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 if(isset($_POST['surname']) && !empty($_POST['surname'])) {
                 
-                    $this->surname = $surname;
+                    $this->surname = htmlentities($surname);
                 
-                    return htmlentities($surname);
+                    return $this->surname;
                     
                 }
                 
@@ -42,9 +40,9 @@
                 
                 if(isset($_POST['firstname']) && !empty($_POST['firstname'])) {
                 
-                    $this->firstname = $firstname;
+                    $this->firstname = htmlentities($firstname);
                 
-                    return htmlentities($firstname);
+                    return $this->firstname;
                     
                 }
                 
@@ -58,9 +56,9 @@
                 
                 if(isset($_POST['middlename']) && !empty($_POST['middlename'])) {
                 
-                    $this->middlename = $middlename;
+                    $this->middlename = htmlentities($middlename);
                 
-                    return htmlentities($middlename);
+                    return $this->middlename;
                     
                 }
                 
@@ -76,7 +74,7 @@
                 
                     $this->dob = $dob;
                 
-                    return $dob;
+                    return $this->dob;
                     
                 }
                 
@@ -90,9 +88,9 @@
                 
                 if(isset($_POST['email']) && !empty($_POST['email'])) {
                 
-                    $this->email = $email;
+                    $this->email = filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
                 
-                    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+                    return $this->email;
                     
                 }
                 
@@ -108,7 +106,7 @@
                 
                     $this->gender = $gender;
                 
-                    return $gender;
+                    return $this->gender;
                     
                 }
                 
@@ -122,9 +120,9 @@
                 
                 if(isset($_POST['studentid']) && !empty($_POST['studentid'])) {
                 
-                    $this->studentid = $studentid;
+                    $this->studentid = htmlentities($studentid);
                 
-                    return htmlentities($studentid);
+                    return $this->studentid;
                     
                 }
                 
@@ -138,9 +136,9 @@
                 
                 if(isset($_POST['address']) && !empty($_POST['address'])) {
                 
-                    $this->address = $address;
+                    $this->address = htmlentities($address);
                 
-                    return htmlentities($address);
+                    return $this->address;
                     
                 }
                 
@@ -154,9 +152,9 @@
                 
                 if(isset($_POST['city']) && !empty($_POST['city'])) {
                 
-                    $this->city = $city;
+                    $this->city = htmlentities($city);
                 
-                    return htmlentities($city);
+                    return $this->city;
                     
                 }
                 
@@ -170,9 +168,9 @@
                 
                 if(isset($_POST['state']) && !empty($_POST['state'])) {
                 
-                    $this->state = $state;
+                    $this->state = htmlentities($state);
                 
-                    return htmlentities($state);
+                    return $this->state;
                     
                 }
                 
@@ -186,9 +184,9 @@
                 
                 if(isset($_POST['guardian_name']) && !empty($_POST['guardian_name'])) {
                 
-                    $this->guardian_name = $guardian_name;
+                    $this->guardian_name = htmlentities($guardian_name);
                 
-                    return htmlentities($guardian_name);
+                    return $this->guardian_name;
                     
                 }
                 
@@ -202,9 +200,9 @@
                 
                 if(isset($_POST['guardian_no']) && !empty($_POST['guardian_no'])) {
                 
-                    $this->guardian_no = $guardian_no;
+                    $this->guardian_no = htmlentities($guardian_no);
                 
-                    return htmlentities($guardian_no);
+                    return $this->guardian_no;
                     
                 }
                 
@@ -228,25 +226,44 @@
             
         }
         
+        public function VerifyStudentReg() {
+            
+            $query = "SELECT COUNT(email) AS email
+                             FROM student WHERE email = :email";
+            
+            $fetchStudent = $this->connect()->prepare($query);
+            $fetchStudent->bindParam(':email', $this->email);
+            $fetchStudent->execute();
+            
+                $row = $fetchStudent->fetch(PDO::FETCH_ASSOC);
+                
+                    if($row['email'] > 0) {
+                        
+                        die('Student already exists!');
+                        
+                    }
+            
+        }
+        
         public function InsertStudent() {
             
-        $insertStudent = $this->connect()->prepare("INSERT INTO student (surname, firstname, middlename, dob, email, gender, studentid, address, city, state, guardian_name, guardian_no, relationship) VALUES ( :surname, :firstname, :middlename, :dob, :email, :gender, :studentid, :address, :city, :state, :guardian_name, :guardian_no, :relationship )");
-        
-        
-        $insertStudent->bindParam(':surname', $this->surname);
-        $insertStudent->bindParam(':firstname', $this->firstname);
-        $insertStudent->bindParam(':middlename', $this->middlename);
-        $insertStudent->bindParam(':dob', $this->dob);
-        $insertStudent->bindParam(':email', $this->email);
-        $insertStudent->bindParam(':gender', $this->gender);
-        $insertStudent->bindParam(':studentid', $this->studentid);
-        $insertStudent->bindParam(':address', $this->address);
-        $insertStudent->bindParam(':city', $this->city);
-        $insertStudent->bindParam(':state', $this->state);
-        $insertStudent->bindParam(':guardian_name', $this->guardian_name);
-        $insertStudent->bindParam(':guardian_no', $this->guardian_no);
-        $insertStudent->bindParam(':relationship', $this->relationship);
-        $insertStudent->execute();
+            $insertStudent = $this->connect()->prepare("INSERT INTO student (surname, firstname, middlename, dob, email, gender, studentid, address, city, state, guardian_name, guardian_no, relationship) VALUES ( :surname, :firstname, :middlename, :dob, :email, :gender, :studentid, :address, :city, :state, :guardian_name, :guardian_no, :relationship )");
+            
+            
+            $insertStudent->bindParam(':surname', $this->surname);
+            $insertStudent->bindParam(':firstname', $this->firstname);
+            $insertStudent->bindParam(':middlename', $this->middlename);
+            $insertStudent->bindParam(':dob', $this->dob);
+            $insertStudent->bindParam(':email', $this->email);
+            $insertStudent->bindParam(':gender', $this->gender);
+            $insertStudent->bindParam(':studentid', $this->studentid);
+            $insertStudent->bindParam(':address', $this->address);
+            $insertStudent->bindParam(':city', $this->city);
+            $insertStudent->bindParam(':state', $this->state);
+            $insertStudent->bindParam(':guardian_name', $this->guardian_name);
+            $insertStudent->bindParam(':guardian_no', $this->guardian_no);
+            $insertStudent->bindParam(':relationship', $this->relationship);
+            $insertStudent->execute();
             
         }    
         
@@ -278,10 +295,10 @@
                 
                 try {
 
-                        $fetchStudent = $this->connect()->prepare("SELECT surname, firstname, middlename FROM student WHERE id = :id");
+                        $fetchStudent = $this->connect()->prepare("SELECT surname, firstname, middlename FROM student");
                         $fetchStudent->bindParam(':id', $id);
                         $fetchStudent->execute();
-                        $student = $fetchStudent->fetchAll();
+                        $student = $fetchStudent->fetch(PDO::FETCH_ASSOC);
                         
                             return $student;
                         

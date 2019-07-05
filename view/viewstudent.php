@@ -51,8 +51,8 @@ if(isset($_SESSION['email'])) {
                             <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                 <select class="js-select2" name="type">
                                     <option selected="selected">Export</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
+                                    <option value="">PDF</option>
+                                    <option value="">CSV</option>
                                 </select>
                                 <div class="dropDownSelect2"></div>
                             </div>

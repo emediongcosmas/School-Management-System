@@ -1,16 +1,13 @@
-<?php 
+<?php
 
 session_start();
 
 if(isset($_SESSION['email'])) {
 
-    include '../model/student.model.php';
-        
-        // $id = $_POST['id'];
-        
-        // $student = new Student;
-        // $student = $student->FetchStudent($id);
-
+    include '../model/subject.model.php';
+    $subject = new Subject;
+    
+    
     $page = "Grade";
     include 'sub-views/header.php'; 
 ?>
@@ -29,7 +26,7 @@ if(isset($_SESSION['email'])) {
                             <div class="form-group col-md-12 form-search">
                                 <label for="">Name:</label>
                                 <input type="text" class="form-control" id="nameSearch" name="name" value="">
-                                <div class="result"></div>
+                                <div class="show_up"></div>
                                 <small id="nameHelp" class="form-text text-muted">Please enter surname</small>
                                 <div id="suggestion-box"></div>
                             </div>
@@ -76,11 +73,11 @@ if(isset($_SESSION['email'])) {
                                 <tr>
                                     <td scope="row">1.</td>
                                     <td scope="row">Mathematics</td>
-                                    <td scope="row"><input type="number" name="ca1" class="form-control"></td>
-                                    <td scope="row"><input type="number" name="exam1" class="form-control"></td>
-                                    <td scope="row"><input type="number" name="ca2" class="form-control"></td>
-                                    <td scope="row"><input type="number" name="exam2" class="form-control"></td>
-                                    <td scope="row"><input type="number" name="total" class="form-control"></td>
+                                    <td scope="row"><input type="number" name="ca1[]" class="form-control"></td>
+                                    <td scope="row"><input type="number" name="exam1[]" class="form-control"></td>
+                                    <td scope="row"><input type="number" name="ca2[]" class="form-control"></td>
+                                    <td scope="row"><input type="number" name="exam2[]" class="form-control"></td>
+                                    <td scope="row"><input type="number" name="total[]" class="form-control"></td>
                                 </tr>
                                 
                             </tbody>
