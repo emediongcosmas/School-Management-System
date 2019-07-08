@@ -66,7 +66,7 @@
                 // Verify if the student has been registered already
                 $student->VerifyStudentReg();
             
-                // Add new student to the database
+                // Insert new student to the database
                 $student->InsertStudent();
                 
                 header('Location: ../view/viewstudent.php');

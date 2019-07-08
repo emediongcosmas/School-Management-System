@@ -88,10 +88,14 @@
                 
                 if(isset($_POST['email']) && !empty($_POST['email'])) {
                 
-                    $this->email = filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
-                
-                    return $this->email;
-                    
+                    if (filter_var($email, FILTER_VALIDATE_EMAIL) !== false){
+                        
+                        $this->email = $email;
+                        
+                            return $this->email;
+                        
+                    }
+    
                 }
                 
             }
@@ -228,16 +232,19 @@
         
         public function VerifyStudentReg() {
             
-            $query = "SELECT COUNT(email) AS email
-                             FROM student WHERE email = :email";
+            $query = "SELECT COUNT(email) AS email,
+                             COUNT(studentid) AS studentid
+                      FROM student WHERE email = :email,
+                                         studentid = :studentid";
             
             $fetchStudent = $this->connect()->prepare($query);
             $fetchStudent->bindParam(':email', $this->email);
+            $fetchStudent->bindParam(':studentid', $this->studentid);
             $fetchStudent->execute();
             
                 $row = $fetchStudent->fetch(PDO::FETCH_ASSOC);
                 
-                    if($row['email'] > 0) {
+                    if($row['email'] > 0 || $row['studentid'] > 0) {
                         
                         die('Student already exists!');
                         

@@ -60,8 +60,8 @@
             
             try {
                 
-                $insertSubject = $this->connect()->prepare("INSERT INTO subject (subject, jss, sss) VALUES ( :subject, :jss, :sss)");
-        
+                $query = "INSERT INTO subject (subject, jss, sss) VALUES ( :subject, :jss, :sss)";
+                $insertSubject = $this->connect()->prepare($query);
                 $insertSubject->bindParam(':subject', $this->subject);
                 $insertSubject->bindParam(':jss', $this->jss);
                 $insertSubject->bindParam(':sss', $this->sss);
@@ -80,8 +80,9 @@
         public function FetchSubject($id) {
             
            try {
-                
-                $fetchSubject = $this->connect()->prepare("SELECT * FROM subject WHERE id=:id");
+               
+                $query = "SELECT * FROM subject WHERE id=:id";
+                $fetchSubject = $this->connect()->prepare($query);
                 $fetchSubject->bindParam(':id', $id);
                 $fetchSubject->execute();
                 $subject = $fetchSubject->fetchAll();
@@ -103,7 +104,8 @@
             
             try {
                 
-                $deleteSubject = $this->connect()->prepare("DELETE FROM subject WHERE id=:id");
+                $query = "DELETE FROM subject WHERE id=:id";
+                $deleteSubject = $this->connect()->prepare($query);
                 $deleteSubject->bindParam(':id', $id);
                 $deleteSubject->execute();
                 
@@ -121,7 +123,8 @@
             
             try {
                 
-                $viewSubject = $this->connect()->prepare("SELECT * FROM subject ORDER BY subject ASC");
+                $query = "SELECT * FROM subject ORDER BY subject ASC";
+                $viewSubject = $this->connect()->prepare($query);
                 $viewSubject->execute();
                 $subjects = $viewSubject->fetchAll();
                 
@@ -142,7 +145,8 @@
             
             try {
                 
-                $updateSubject = $this->connect()->prepare("UPDATE subject SET subject=:subject, jss=:jss, sss=:sss WHERE id=:id");
+                $query = "UPDATE subject SET subject=:subject, jss=:jss, sss=:sss WHERE id=:id";
+                $updateSubject = $this->connect()->prepare($query);
                 $updateSubject->bindParam(':subject', $this->subject);
                 $updateSubject->bindParam(':jss', $this->jss);
                 $updateSubject->bindParam(':sss', $this->sss);

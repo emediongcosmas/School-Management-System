@@ -46,7 +46,7 @@ if(isset($_SESSION['email'])) {
                         <table class="table table-data2 auto-index">
                             <thead>
                                 <tr>
-                                    <!-- <th>id</th> -->
+                                    <th>id</th>
                                     <th>Subject</th>
                                     <th>jss</th>
                                     <th>sss</th>
@@ -57,7 +57,7 @@ if(isset($_SESSION['email'])) {
                             
                             <tbody>
                                 <tr class="tr-shadow">
-                                    <!-- <td></td> -->
+                                    <td></td>
                                     <td width="50%"><?= $subject['subject']; ?></td>
                                     <td width="20%">
                                         

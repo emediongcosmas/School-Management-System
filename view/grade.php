@@ -6,7 +6,7 @@ if(isset($_SESSION['email'])) {
 
     include '../model/subject.model.php';
     $subject = new Subject;
-    
+    $subjects = $subject->FetchAllSubjects();
     
     $page = "Grade";
     include 'sub-views/header.php'; 
@@ -57,7 +57,7 @@ if(isset($_SESSION['email'])) {
                             </div>
                         </div>
                         
-                        <table class="table table-striped">
+                        <table class="table table-striped auto-index">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -70,16 +70,17 @@ if(isset($_SESSION['email'])) {
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($subjects as $subject) { ?>
                                 <tr>
-                                    <td scope="row">1.</td>
-                                    <td scope="row">Mathematics</td>
+                                    <td scope="row"></td>
+                                    <td scope="row"><input type="text" name="subject[]" class="form-control" value="<?= $subject['subject']; ?>"></td>
                                     <td scope="row"><input type="number" name="ca1[]" class="form-control"></td>
                                     <td scope="row"><input type="number" name="exam1[]" class="form-control"></td>
                                     <td scope="row"><input type="number" name="ca2[]" class="form-control"></td>
                                     <td scope="row"><input type="number" name="exam2[]" class="form-control"></td>
                                     <td scope="row"><input type="number" name="total[]" class="form-control"></td>
                                 </tr>
-                                
+                                <?php } ?>
                             </tbody>
                            
                         </table>
@@ -87,9 +88,9 @@ if(isset($_SESSION['email'])) {
                         
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                             <button class="btn btn-danger" onclick="window.location.href='viewstudent.php'">Cancel</button>
                         </div>
-                    </form>
                     <!-- END OF GRADE FORM -->
                     
                 </div>
